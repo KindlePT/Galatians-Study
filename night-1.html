@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Night 1 Recap</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Bowlby+One&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Yellowtail&display=swap">
+<style>
+/* Concept: the visitor-center brochure from Night 1, made tappable. Parchment pages, a teal/orange park palette, and one idea per section that you open, flip, fill in or answer. */
+:root{
+  --bg:#F3EAD2; --card:#FBF5E4; --ink:#1F1A14; --muted:#5C533F; --edge:#D8C79B; --soft:#F2DDBE;
+  --orange:#B2440D; --extrude:#E2551A; --teal:#1F6A8E; --teal-deep:#14475F; --olive:#5C6A1E; --on:#FFF6E2;
+  --good:#2F6B2F; --good-bg:#DDEBCB; --bad:#9A2A12; --bad-bg:#F6D8CC; --shadow:rgba(60,38,10,.22);
+  --hero-bg:#1D6A87; --hero-ink:#0F2F3B; --cream:#F7EBCB;
+  --fd:'Bowlby One',Impact,'Arial Black',sans-serif; --fs:'Yellowtail','Brush Script MT',cursive;
+  --fb:'Source Serif 4',Georgia,'Times New Roman',serif; --fl:'Barlow Condensed','Arial Narrow',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1A1F; --card:#17262D; --ink:#F1E6C6; --muted:#B4BDB3; --edge:#33474F; --soft:#2A3A38;
+    --orange:#E57A3A; --extrude:#7A2E0C; --teal:#5FB3D6; --teal-deep:#9ED4EA; --olive:#B7C46A; --on:#1A120A;
+    --good:#A9D98F; --good-bg:#223A22; --bad:#F2A58F; --bad-bg:#3E211A; --shadow:rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1A1F; --card:#17262D; --ink:#F1E6C6; --muted:#B4BDB3; --edge:#33474F; --soft:#2A3A38;
+  --orange:#E57A3A; --extrude:#7A2E0C; --teal:#5FB3D6; --teal-deep:#9ED4EA; --olive:#B7C46A; --on:#1A120A;
+  --good:#A9D98F; --good-bg:#223A22; --bad:#F2A58F; --bad-bg:#3E211A; --shadow:rgba(0,0,0,.5); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+a{color:var(--teal)}
+.eyebrow{font-family:var(--fs);font-size:1.7rem;line-height:1.1;color:var(--orange)}
+h1{font-family:var(--fd);font-weight:400;font-size:clamp(1.9rem,7vw,2.9rem);line-height:1.08;text-shadow:3px 3px 0 var(--extrude);text-wrap:balance;margin:4px 0 6px}
+.badge{display:inline-block;font:600 .95rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--on);background:var(--teal-deep);padding:3px 12px;border-radius:3px}
+[data-theme="dark"] .badge,:root:not([data-theme="light"]) .badge{}
+.idea{margin-top:20px;background:var(--card);border-left:6px solid var(--orange);padding:14px 18px;border-radius:0 8px 8px 0;box-shadow:0 3px 8px var(--shadow)}
+.idea b{display:block;font:600 .9rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.idea p{font-size:1.15rem;margin-top:2px}
+nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+nav.jump a{font:600 .95rem var(--fl);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--teal-deep);border:2px solid var(--teal);border-radius:99px;padding:4px 14px}
+nav.jump a:hover{background:var(--soft)}
+section{margin-top:44px}
+.sec-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.3rem,4.6vw,1.75rem);line-height:1.15;text-wrap:balance}
+.tap{font-family:var(--fs);font-size:1.35rem;color:var(--orange)}
+.lead{color:var(--muted);margin-bottom:14px}
+
+/* Hero postcard */
+.hero{position:relative;overflow:hidden;background:var(--hero-bg);border:10px solid var(--cream);border-radius:14px;color:var(--cream);padding:34px clamp(18px,5vw,48px) 120px;min-height:340px}
+.hero .script{font-family:var(--fs);font-size:clamp(1.9rem,6.5vw,3.2rem);line-height:1;transform:rotate(-4deg);transform-origin:left bottom;display:block;margin-bottom:4px}
+.hero h1{font-family:var(--fd);font-weight:400;font-size:clamp(2.4rem,11vw,6.2rem);line-height:1;letter-spacing:.01em;color:var(--cream);-webkit-text-stroke:3px var(--hero-ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--hero-orange),8px 8px 0 var(--hero-ink);transform:skewX(-6deg);transform-origin:left bottom;margin-left:4px;overflow-wrap:normal}
+.hero .sub{position:relative;z-index:2;margin-top:28px;max-width:34rem;font-size:1.08rem}
+.hero .tag{font-family:var(--fl);text-transform:uppercase;letter-spacing:.14em;font-weight:600;font-size:.95rem;margin-top:18px;position:relative;z-index:2}
+.ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:110px;display:block}
+.postmark{position:absolute;top:14px;right:12px;width:148px;height:auto;color:var(--cream);opacity:.85;transform:rotate(-10deg)}
+@media (max-width:620px){.postmark{width:104px;top:6px;right:4px}}
+.wrap-badge{margin-top:16px}
+
+/* Markers */
+.mk{background:var(--card);border:2px solid var(--edge);border-radius:10px;margin-top:12px;overflow:hidden;box-shadow:0 2px 6px var(--shadow)}
+.mk>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;cursor:pointer}
+.mk>button:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+.num{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:var(--on);font-family:var(--fd);font-size:1.25rem;border:3px double var(--on);box-shadow:0 0 0 2px var(--orange)}
+.mk .t{flex:1;min-width:0}
+.mk .t small{display:block;font:600 .8rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.mk .t strong{display:block;font-family:var(--fd);font-weight:400;font-size:1.12rem;line-height:1.2}
+.mk .chev{flex:none;transition:transform .3s;font-size:1.3rem;color:var(--teal)}
+.mk.open .chev{transform:rotate(180deg)}
+.body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.mk.open .body{grid-template-rows:1fr}
+.body>div{overflow:hidden}
+.body .in{padding:0 18px 18px;display:grid;gap:12px}
+.body ul{padding-left:1.15rem;display:grid;gap:6px}
+.body li::marker{color:var(--orange)}
+.vs{font-style:italic;border-left:4px solid var(--teal);padding:2px 0 2px 14px}
+.vs cite{display:block;font:600 .85rem var(--fl);letter-spacing:.1em;text-transform:uppercase;font-style:normal;color:var(--muted);margin-top:2px}
+.think{background:var(--soft);border-radius:8px;padding:10px 14px}
+.think b{font:600 .85rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);display:block}
+.btn{display:inline-block;font:600 1rem var(--fl);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--on);background:var(--teal-deep);border:0;border-radius:4px;padding:8px 16px}
+[data-theme="dark"] .btn{color:#0F1A1F}
+.btn.ghost{background:transparent;color:var(--teal-deep);border:2px solid var(--teal)}
+.also{font-size:.92rem;color:var(--muted)}
+
+/* People */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.pc{font:600 1rem var(--fl);letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--teal);background:var(--card);color:var(--teal-deep);border-radius:99px;padding:6px 14px;transition:background .2s,transform .2s}
+.pc:hover{transform:translateY(-1px)}
+.pc[aria-pressed="true"]{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
+[data-theme="dark"] .pc[aria-pressed="true"]{color:#0F1A1F}
+.pcard{margin-top:12px;background:var(--card);border:2px dashed var(--edge);border-radius:10px;padding:14px 16px;min-height:6.5rem}
+.pcard.go{animation:rise .45s ease both}
+.pcard h3{font-family:var(--fd);font-weight:400;font-size:1.1rem;color:var(--orange)}
+.pcard .where{font:600 .9rem var(--fl);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.seen{font:600 .9rem var(--fl);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Flip cards */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:6px}
+.flip{all:unset;box-sizing:border-box;display:block;perspective:900px;cursor:pointer;min-height:230px;border-radius:12px}
+.flip:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.fi{display:block;position:relative;width:100%;height:100%;min-height:230px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.2,.4,1)}
+.flip[aria-pressed="true"] .fi{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:16px;display:grid;align-content:center;justify-items:center;text-align:center;gap:6px;box-shadow:0 3px 8px var(--shadow)}
+.front{background:linear-gradient(150deg,var(--teal-deep),#0e3447);color:#FFF6E2;border:3px double #FFF6E2;outline:2px solid var(--teal-deep)}
+.front .gr{font-size:2.1rem;line-height:1.1;font-family:var(--fb);font-weight:600}
+.front .tr{font:600 .95rem var(--fl);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.front .hint{font-family:var(--fs);font-size:1.25rem;color:#F2C48D;margin-top:8px}
+.back{transform:rotateY(180deg);background:var(--card);border:2px solid var(--edge);text-align:left;justify-items:start;align-content:start;font-size:1.02rem}
+.back h3{font-family:var(--fd);font-weight:400;font-size:1rem;color:var(--orange)}
+.back .ref{font:600 .85rem var(--fl);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Blanks */
+.verse{background:var(--card);border:2px solid var(--edge);border-radius:10px;padding:18px;font-size:1.1rem;box-shadow:0 2px 6px var(--shadow)}
+.blank{all:unset;box-sizing:border-box;display:inline-block;min-width:6.5ch;text-align:center;border-bottom:3px dashed var(--orange);color:transparent;cursor:pointer;padding:0 6px;vertical-align:baseline;line-height:1.1;transition:color .3s,background .3s;border-radius:3px}
+.blank:hover{background:var(--soft)}
+.blank:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.blank.on{color:var(--orange);font-weight:600;border-bottom-style:solid;animation:pop .45s cubic-bezier(.2,1.5,.4,1)}
+@keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.vnote{margin-top:12px;color:var(--muted);min-height:1.6em}
+
+/* Letter */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{flex:1 1 140px;font-family:var(--fd);font-size:1rem;border:2px solid var(--teal);background:var(--card);color:var(--teal-deep);border-radius:8px;padding:10px 8px;text-align:center;line-height:1.2}
+.tab small{display:block;font:600 .8rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.tab[aria-selected="true"]{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
+.tab[aria-selected="true"] small{color:inherit;opacity:.85}
+[data-theme="dark"] .tab[aria-selected="true"]{color:#0F1A1F}
+.chaps{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:12px}
+.chaps i{height:12px;border-radius:99px;background:var(--edge);transition:background .3s}
+.chaps i.on{background:var(--orange)}
+.chaps+.chaps{margin-top:2px}
+.clab{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;font:600 .8rem var(--fl);letter-spacing:.06em;color:var(--muted);text-align:center;margin-top:4px}
+.panel{background:var(--card);border:2px solid var(--edge);border-radius:10px;padding:14px 16px;margin-top:12px;display:grid;gap:8px;animation:rise .4s ease both}
+.panel .q{font-family:var(--fd);font-size:1.05rem;line-height:1.25;color:var(--orange)}
+
+/* Quiz */
+.quiz{background:var(--card);border:2px solid var(--edge);border-radius:10px;padding:16px;box-shadow:0 2px 6px var(--shadow)}
+.qprog{font:600 .9rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.qtext{font-family:var(--fd);font-size:1.15rem;line-height:1.25;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:2px solid var(--edge);background:var(--bg);border-radius:8px;padding:10px 14px;transition:background .2s,border-color .2s}
+.opt:hover:not(:disabled){border-color:var(--teal)}
+.opt.ok{background:var(--good-bg);border-color:var(--good)}
+.opt.no{background:var(--bad-bg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--soft);animation:rise .35s ease both}
+.fb b{font:600 .9rem var(--fl);letter-spacing:.14em;text-transform:uppercase}
+.qnav{margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.score{font-family:var(--fd);font-size:2.2rem;color:var(--orange);line-height:1}
+
+/* Take it home */
+.home{background:var(--card);border:2px solid var(--edge);border-radius:10px;padding:16px;display:grid;gap:12px;box-shadow:0 2px 6px var(--shadow)}
+.todo{display:flex;gap:12px;align-items:flex-start;text-align:left;border:0;background:none;padding:2px 0;width:100%}
+.box{flex:none;width:26px;height:26px;border:3px solid var(--teal);border-radius:6px;display:grid;place-items:center;font-size:1rem;line-height:1;color:transparent;margin-top:2px;transition:background .2s}
+.todo[aria-pressed="true"] .box{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
+.todo[aria-pressed="true"] span:last-child{text-decoration:line-through;opacity:.7}
+.pad label{display:block;font:600 .9rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.pad textarea{width:100%;min-height:96px;resize:vertical;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--edge);border-radius:8px;padding:10px 12px}
+.pad small{color:var(--muted);display:block;margin-top:4px}
+.next{margin-top:20px;border-top:3px dashed var(--edge);padding-top:16px;color:var(--muted)}
+.next b{color:var(--ink)}
+footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
+@media (prefers-reduced-motion:reduce){.body,.fi,.chev,.blank,.pc{transition:none}.pcard.go,.panel,.fb,.blank.on{animation:none}}
+</style>
+<style>html{color-scheme:light}:root[data-theme="dark"],:root{}img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+</head><body>
+
+<main class="wrap">
+  <header class="hero">
+  <svg class="postmark" viewBox="0 0 150 64" role="img" aria-label="Postmark: Night 1, November 12">
+    <defs><path id="pmring" d="M32,32 m-24,0 a24,24 0 1,1 48,0 a24,24 0 1,1 -48,0"/></defs>
+    <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="32" cy="32" r="17" fill="none" stroke="currentColor" stroke-width="1"/>
+    <text font-family="Barlow Condensed, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.6" fill="currentColor"><textPath href="#pmring" startOffset="2">NIGHT 1 · GALATIANS · </textPath></text>
+    <text x="32" y="30" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" font-weight="600" fill="currentColor">NOV</text>
+    <text x="32" y="41" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="12" font-weight="600" fill="currentColor">12</text>
+    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M66,18 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
+      <path d="M66,28 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
+      <path d="M66,38 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
+      <path d="M66,48 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
+    </g>
+  </svg>
+  <span class="script">Greetings from</span>
+  <h1>GALATIANS</h1>
+  <p class="sub">Galatians in Context: the people, the road and the problem behind the letter.</p>
+  <p class="tag">Night 1 · Badge: Visitor Center</p>
+  <svg class="ridge" viewBox="0 0 800 110" preserveAspectRatio="none" aria-hidden="true">
+    <polygon points="0,110 0,62 70,30 130,58 210,14 290,60 360,38 440,70 520,24 600,56 680,34 760,60 800,44 800,110" fill="#14566F"/>
+    <polygon points="0,110 0,84 90,64 170,86 260,58 350,88 450,66 540,90 640,70 730,92 800,76 800,110" fill="#5F6E22"/>
+    <polygon points="0,110 0,98 120,88 240,100 380,90 520,102 660,92 800,100 800,110" fill="#0F2F3B"/>
+  </svg>
+</header>
+  <div class="intro">
+    <div class="idea"><b>Big idea</b><p>Paul writes because the Galatians are trading the gospel of grace for a different “gospel” that adds the works of the law to Christ.</p></div>
+    <nav class="jump" aria-label="Sections">
+      <a href="#markers">Markers</a><a href="#people">Who was there</a><a href="#words">Key words</a><a href="#letter">The letter</a><a href="#home">Take it home</a>
+    </nav>
+  </div>
+
+  <section id="markers">
+    <div class="sec-h"><h2>The six markers</h2><span class="tap">tap to open</span></div>
+    <p class="lead">Last night's walk through the letter, one stop at a time. Open the ones you want to revisit.</p>
+    <div id="mklist"></div>
+  </section>
+
+  <section id="people">
+    <div class="sec-h"><h2>Who was listening?</h2><span class="tap">tap each group</span></div>
+    <p class="lead">Galatia was a mix of people with very different backgrounds. These were the ones Paul met on the road.</p>
+    <div class="chips" id="pchips"></div>
+    <div class="pcard" id="pcard"><p style="color:var(--muted)">Choose a group to see who they were and where we meet them in Scripture.</p></div>
+    <div class="seen" id="pseen"></div>
+  </section>
+
+  <section id="words">
+    <div class="sec-h"><h2>Three words that matter</h2><span class="tap">tap to flip</span></div>
+    <p class="lead">Paul chooses his words carefully in Galatians 1:6-9. Three of them in the original Greek.</p>
+    <div class="flips" id="flips"></div>
+  </section>
+
+  <section id="letter">
+    <div class="sec-h"><h2>The letter at a glance</h2><span class="tap">tap a part</span></div>
+    <p class="lead">Six chapters, three parts. Here is where each one is headed.</p>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="chaps" id="chaps" aria-hidden="true"></div>
+    <div class="clab" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+    <div class="panel" id="lpanel" role="tabpanel" aria-live="polite"></div>
+  </section>
+
+
+  <section id="home">
+    <div class="sec-h"><h2>Take it home</h2></div>
+    <div class="home">
+      <button class="todo" type="button" aria-pressed="false" data-k="t1"><span class="box" aria-hidden="true">✓</span><span>Notice where you have been adding something to Jesus to feel secure with God.</span></button>
+      <button class="todo" type="button" aria-pressed="false" data-k="t2"><span class="box" aria-hidden="true">✓</span><span>Read Galatians 1 before next week. It takes about five minutes.</span></button>
+      <button class="todo" type="button" aria-pressed="false" data-k="t3"><span class="box" aria-hidden="true">✓</span><span>Pray for a heart that rests in what Christ has finished.</span></button>
+      <div class="pad">
+        <label for="jp">My “Jesus plus ___”</label>
+        <textarea id="jp" placeholder="Where do I quietly add something to what Christ has done?"></textarea>
+        <small>Saved only on this device. Nobody else can see it.</small>
+      </div>
+    </div>
+    <div class="next"><b>Next up: Night 2.</b> Read Galatians 1 and come ready to talk about where Paul says the gospel came from.</div>
+  </section>
+
+  <footer>
+    <div>See the whole road: <a href="paul-journey.html">Paul's First Journey, an interactive map</a>.</div>
+    <div>Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.</div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function store(k,v){try{if(v===undefined)return localStorage.getItem("gal1-"+k);localStorage.setItem("gal1-"+k,v)}catch(e){return null}}
+  function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e}
+
+  /* ---------- markers ---------- */
+  var MK=[
+   {n:1,t:"Galatia and its people",bul:[
+     "The Galatians began as <b>Gauls</b>, a Celtic people who settled central Turkey around 278 BC. “Galatia” means the land of the Gauls.",
+     "In 25 BC Rome turned the region into a <b>province</b> and added southern areas, so “Galatia” came to mean a big province.",
+     "This study follows the <b>South Galatia</b> view: the churches of Pisidian Antioch, Iconium, Lystra and Derbe (Acts 13-14).",
+     "The people were a mix of native Anatolians, Greeks, Roman colonists, Jews and God-fearers, mostly ordinary working people."],
+     read:"Acts 14:11-13",think:"Galatia brought together natives, Greeks, Romans and Jews. Why might it be a fitting place for a message of “neither Jew nor Greek” (3:28)?",also:"Acts 16:6; 18:23; 1 Corinthians 16:1"},
+   {n:2,t:"Paul's first journey",bul:[
+     "The church at <b>Syrian Antioch</b> sets apart Barnabas and Saul, and the Spirit sends them out (Acts 13:1-3).",
+     "They go to Cyprus, then Perga, then inland to <b>Pisidian Antioch, Iconium, Lystra and Derbe</b>, and return along the same road.",
+     "Paul begins in the synagogue, then reaches the Gentiles. He starts from Israel's story for Jews and from creation and God's kindness for pagans at Lystra. The message about Christ stays the same.",
+     "Gladness is followed by opposition in each city. Paul goes back to strengthen the believers and appoint elders (14:21-23). Then he leaves, and the trouble in Galatians arrives."],
+     verse:{q:"“Let it be known to you therefore, brothers, that through this man forgiveness of sins is proclaimed to you, and by him everyone who believes is freed from everything from which you could not be freed by the law of Moses.”",r:"Acts 13:38-39 (ESV)"},
+     think:"What does Paul tell the synagogue about forgiveness and the law? How does it compare with Galatians 2:16?",map:true,also:"Acts 13:13-14:28; Galatians 4:8-20"},
+   {n:3,t:"When it was written",bul:[
+     "Galatians may be <b>Paul's earliest letter</b>.",
+     "<b>Early date:</b> about AD 48-49, from Syrian Antioch, just before the Jerusalem Council. <b>Later date:</b> about AD 53-55, from Ephesus or Macedonia.",
+     "Either way, the question is the one in Acts 15:1: must Gentiles be circumcised to be saved? It was the first great crisis of the early church."],
+     think:"Why would the church's first big crisis be about who belongs and how, rather than about worship style or leadership?",also:"Acts 15:1-11; Galatians 2:1-10"},
+   {n:4,t:"What went wrong",bul:[
+     "After Paul left, teachers arrived with a message of <b>“Jesus plus circumcision and the law of Moses.”</b> Nobody told them to drop Jesus.",
+     "Paul calls it a <b>different gospel</b>, because if the law must be added, Christ's finished work is not enough (2:21).",
+     "It was social as much as theological. Circumcision and food laws marked who was “in.” Even Peter pulled back at Antioch (2:11-14).",
+     "Three marks of legalism: working in our own power, by our own rules, to earn God's favor.",
+     "Paul writes to <b>believers</b>. The gospel is how we begin and also how we keep going."],
+     verse:{q:"“For freedom Christ has set us free; stand firm therefore, and do not submit again to a yoke of slavery.”",r:"Galatians 5:1 (ESV)"},
+     think:"Where do you feel social pressure shape what you think faith requires of you, even when you believe the right things?",also:"Galatians 2:11-14; 2:21; 6:12-13"},
+   {n:5,t:"How the letter is built",bul:[
+     "Three parts: the gospel <b>defended</b> (chapters 1-2), <b>explained</b> (3-4) and <b>lived</b> (5-6). Open “The letter at a glance” below.",
+     "Two threads run all the way through: <b>faith versus works of the law</b>, and <b>flesh versus Spirit</b>.",
+     "Paul skips his usual thanks and writes “I am astonished” (1:6), yet he keeps calling them <b>brothers</b>. The sharpness comes from love."],
+     think:"Of the three parts, defended, explained or lived, which do you most need to hear this season?"},
+   {n:6,t:"Galatians 1:6-9",bul:[
+     "<b>Verse 6:</b> They are “deserting” the one who called them in the grace of Christ. God's call and grace came first.",
+     "<b>Verse 7:</b> There is not a second gospel, only a distortion that troubles people.",
+     "<b>Verses 8-9:</b> “Accursed” applies even to Paul or an angel. No one has the authority to revise the gospel. He says it twice on purpose."],
+     verse:{q:"“I am astonished that you are so quickly deserting him who called you in the grace of Christ and are turning to a different gospel—not that there is another one, but there are some who trouble you and want to distort the gospel of Christ.”",r:"Galatians 1:6-7 (ESV)"},
+     think:"What quiet versions of “Jesus plus ___” show up in everyday Christian life? Think about church, home and work.",also:"Romans 1:16-17; 1 Corinthians 15:1-4; 2 Corinthians 11:4"}
+  ];
+  var list=$("mklist");
+  MK.forEach(function(m,i){
+    var card=el("div","mk"),id="mk"+m.n;
+    var b=el("button",null,'<span class="num" aria-hidden="true">'+m.n+'</span><span class="t"><small>Marker '+m.n+'</small><strong>'+m.t+'</strong></span><span class="chev" aria-hidden="true">⌄</span>');
+    b.type="button";b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls",id);
+    var body=el("div","body");body.id=id;body.setAttribute("role","region");
+    var inn=el("div","in");
+    inn.appendChild(el("ul",null,m.bul.map(function(x){return "<li>"+x+"</li>"}).join("")));
+    if(m.read)inn.appendChild(el("p","also","<b>Read:</b> "+m.read));
+    if(m.verse)inn.appendChild(el("blockquote","vs",m.verse.q+"<cite>"+m.verse.r+"</cite>"));
+    inn.appendChild(el("div","think","<b>Think about it</b>"+m.think));
+    if(m.map){var a=el("a","btn","Trace it on the map");a.href="paul-journey.html";inn.appendChild(a)}
+    if(m.also)inn.appendChild(el("p","also","<b>Also read:</b> "+m.also));
+    var wrap=el("div");wrap.appendChild(inn);body.appendChild(wrap);
+    b.addEventListener("click",function(){var o=card.classList.toggle("open");b.setAttribute("aria-expanded",o)});
+    card.appendChild(b);card.appendChild(body);list.appendChild(card);
+  });
+
+  /* ---------- people ---------- */
+  var PE=[
+   {g:"Native Anatolians",who:"Phrygians, Pisidians and Lycaonians, often rural, with their own languages and gods.",w:"Acts 14:11-13, the crowd at Lystra"},
+   {g:"Greeks",who:"Descendants of Greek settlers, who shaped city life and language.",w:"Acts 14:1, Greeks believing at Iconium"},
+   {g:"Roman colonists",who:"Veterans and Italians in the colonies, with higher civic standing.",w:"Pisidian Antioch and Lystra were colonies"},
+   {g:"Jews",who:"Communities in the region since the 200s BC, when Antiochus III moved about 2,000 Jewish families from Babylon to Lydia and Phrygia.",w:"Synagogues in Acts 13:14 and 14:1"},
+   {g:"God-fearers",who:"Gentiles who worshiped with the synagogue without becoming full converts.",w:"Acts 13:16, 26, 43"},
+   {g:"Enslaved and freed people",who:"Present in every Roman city and household. Paul's pictures of slavery, adoption and inheritance would have been familiar.",w:"Imagery in Galatians 3:23-4:7"}
+  ];
+  var seen={},ch=$("pchips");
+  PE.forEach(function(p,i){
+    var b=el("button","pc",p.g);b.type="button";b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){
+      [].forEach.call(ch.children,function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");
+      var c=$("pcard");c.classList.remove("go");void c.offsetWidth;
+      c.innerHTML="<h3>"+p.g+"</h3><p>"+p.who+"</p><div class=\"where\">Where we see them: "+p.w+"</div>";c.classList.add("go");
+      seen[i]=1;var n=Object.keys(seen).length;
+      $("pseen").textContent=n===PE.length?"All six groups met. A very mixed audience for one gospel.":n+" of "+PE.length+" groups met";
+    });
+    ch.appendChild(b);
+  });
+
+  /* ---------- flip cards ---------- */
+  var WD=[
+   {gr:"μετατίθημι",tr:"metatithēmi",en:"“deserting”",ref:"Galatians 1:6",h:"To change sides",b:"Used of soldiers who defect. Paul is not describing a slow drift but a switch of loyalty, away from the one who called them in grace."},
+   {gr:"ἕτερος / ἄλλος",tr:"heteros / allos",en:"“different” / “another”",ref:"Galatians 1:6-7",h:"A different kind, not a second one",b:"Paul uses <i>heteros</i> (a different kind) in verse 6 and <i>allos</i> (another of the same kind) in verse 7. There is no second version of the gospel, only a distortion."},
+   {gr:"ἀνάθεμα",tr:"anathema",en:"“accursed”",ref:"Galatians 1:8-9",h:"Set apart for judgment",b:"Paul applies it to himself and even to an angel. Nobody has authority to revise the gospel, and he repeats the warning on purpose."}
+  ];
+  var fl=$("flips");
+  WD.forEach(function(w){
+    var b=el("button","flip");b.type="button";b.setAttribute("aria-pressed","false");b.setAttribute("aria-label",w.tr+", "+w.en+". Flip for the meaning.");
+    b.innerHTML='<span class="fi"><span class="face front"><span class="gr" lang="grc">'+w.gr+'</span><span class="tr">'+w.tr+'</span><span class="tr">'+w.en+'</span><span class="hint">tap to flip</span></span><span class="face back"><span class="ref">'+w.ref+'</span><h3>'+w.h+'</h3><span>'+w.b+'</span></span></span>';
+    b.addEventListener("click",function(){b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true")});
+    fl.appendChild(b);
+  });
+
+  /* ---------- letter tabs ---------- */
+  var LT=[
+   {k:"Defended",c:"Chapters 1-2",ch:[1,2],q:"Where did the gospel come from?",b:["Paul begins with his own story to show the gospel came from Jesus Christ and not from any person.","Landmark verses: 1:11-12 and 2:20."]},
+   {k:"Explained",c:"Chapters 3-4",ch:[3,4],q:"How have people always been made right with God?",b:["Abraham believed God, and Paul builds from there to sons and heirs.","Landmark verses: 3:6-9 and 4:4-7. Paul quotes Deuteronomy twice in chapter 3 (27:26 and 21:23), so the covenant blessings and curses we have been studying in Deuteronomy come back."]},
+   {k:"Lived",c:"Chapters 5-6",ch:[5,6],q:"What does life look like when we are free in Christ?",b:["Freedom is not a license. It is life by the Spirit.","Landmark verses: 5:1, 5:22-23 and 6:2."]}
+  ];
+  var tb=$("tabs"),cp=$("chaps");
+  for(var c=1;c<=6;c++)cp.appendChild(el("i"));
+  LT.forEach(function(t,i){
+    var b=el("button","tab",t.k+"<small>"+t.c+"</small>");b.type="button";b.setAttribute("role","tab");
+    b.addEventListener("click",function(){pick(i)});tb.appendChild(b);
+  });
+  function pick(i){
+    var t=LT[i];
+    [].forEach.call(tb.children,function(b,j){b.setAttribute("aria-selected",j===i)});
+    [].forEach.call(cp.children,function(x,j){x.classList.toggle("on",t.ch.indexOf(j+1)>-1)});
+    var p=$("lpanel");p.style.animation="none";void p.offsetWidth;p.style.animation="";
+    p.innerHTML='<div class="q">'+t.q+'</div>'+t.b.map(function(x){return "<p>"+x+"</p>"}).join("")+
+      '<p class="also"><b>Keep watching for:</b> faith versus works of the law, and flesh versus Spirit.</p>';
+  }
+  pick(0);
+
+  /* ---------- take it home ---------- */
+  [].forEach.call(document.querySelectorAll(".todo"),function(b){
+    var k="todo-"+b.getAttribute("data-k");if(store(k)==="1")b.setAttribute("aria-pressed","true");
+    b.addEventListener("click",function(){var on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on);store(k,on?"1":"0")});
+  });
+  var jp=$("jp");var sv=store("jesusplus");if(sv)jp.value=sv;
+  jp.addEventListener("input",function(){store("jesusplus",jp.value)});
+})();
+</script>
+</body></html>

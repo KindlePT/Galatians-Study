@@ -8,11 +8,11 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A1F;--card:#17262D;--ink:#F1E6C6;--muted:#B4BDB3;--edge:#33474F;--orange:#E57A3A;--extrude:#7A2E0C;--teal:#5FB3D6;--teal-deep:#9ED4EA;--shadow:rgba(0,0,0,.5);color-scheme:dark}}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Source Serif 4',Georgia,serif}
 .wrap{max-width:640px;margin:0 auto;padding-block:36px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.eyebrow{font:2rem/1.1 'Yellowtail','Brush Script MT',cursive;color:var(--orange)}
-h1{font:400 clamp(2rem,8vw,3rem)/1.08 'Bowlby One',Impact,sans-serif;text-shadow:3px 3px 0 var(--extrude);margin:4px 0 8px;text-wrap:balance}
+.banner{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px var(--shadow)}
+h1{font:400 clamp(2rem,8vw,3rem)/1.08 'Bowlby One',Impact,sans-serif;text-shadow:3px 3px 0 var(--extrude);margin:20px 0 8px;text-wrap:balance}
 p{margin:0 0 12px;color:var(--muted)}
 .list{display:grid;gap:14px;margin-top:24px}
-a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--edge);border-radius:12px;padding:16px 18px;box-shadow:0 3px 8px var(--shadow);transition:transform .2s}
+.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--edge);border-radius:12px;padding:16px 18px;box-shadow:0 3px 8px var(--shadow);transition:transform .2s}
 a.card:hover{transform:translateY(-2px)}
 a.card:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
 .k{font:600 .85rem 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
@@ -21,7 +21,7 @@ a.card:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
 .soon{opacity:.6;border-style:dashed;box-shadow:none}
 .foot{margin-top:28px;font-size:.88rem;color:var(--muted)}
 </style></head><body><div class="wrap">
-<div class="eyebrow">Greetings from Galatians</div>
+<img class="banner" src="banner.jpg" width="1400" height="787" alt="Vintage postcard reading Greetings from Galatia, with mountains inside the letters and ancient stone ruins in the foreground">
 <h1>Study Companion</h1>
 <p>Everything from our Galatians study, in one place, so you can come back to it any time.</p>
 <div class="list">

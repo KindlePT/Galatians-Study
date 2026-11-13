@@ -61,6 +61,9 @@ h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.3rem,4.6vw,1.75rem);l
 @media (max-width:620px){.postmark{width:104px;top:6px;right:4px}}
 .wrap-badge{margin-top:16px}
 
+.banner img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px var(--shadow)}
+.banner h1{margin:18px 0 8px}
+.banner .badge{display:inline-block}
 /* Markers */
 .mk{background:var(--card);border:2px solid var(--edge);border-radius:10px;margin-top:12px;overflow:hidden;box-shadow:0 2px 6px var(--shadow)}
 .mk>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;cursor:pointer}
@@ -171,31 +174,11 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
 </head><body>
 
 <main class="wrap">
-  <header class="hero">
-  <svg class="postmark" viewBox="0 0 150 64" role="img" aria-label="Postmark: Night 1, November 12">
-    <defs><path id="pmring" d="M32,32 m-24,0 a24,24 0 1,1 48,0 a24,24 0 1,1 -48,0"/></defs>
-    <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <circle cx="32" cy="32" r="17" fill="none" stroke="currentColor" stroke-width="1"/>
-    <text font-family="Barlow Condensed, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.6" fill="currentColor"><textPath href="#pmring" startOffset="2">NIGHT 1 · GALATIANS · </textPath></text>
-    <text x="32" y="30" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="9" font-weight="600" fill="currentColor">NOV</text>
-    <text x="32" y="41" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="12" font-weight="600" fill="currentColor">12</text>
-    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-      <path d="M66,18 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
-      <path d="M66,28 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
-      <path d="M66,38 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
-      <path d="M66,48 q6,-6 12,0 t12,0 t12,0 t12,0 t12,0"/>
-    </g>
-  </svg>
-  <span class="script">Greetings from</span>
-  <h1>GALATIANS</h1>
-  <p class="sub">Galatians in Context: the people, the road and the problem behind the letter.</p>
-  <p class="tag">Night 1 · Badge: Visitor Center</p>
-  <svg class="ridge" viewBox="0 0 800 110" preserveAspectRatio="none" aria-hidden="true">
-    <polygon points="0,110 0,62 70,30 130,58 210,14 290,60 360,38 440,70 520,24 600,56 680,34 760,60 800,44 800,110" fill="#14566F"/>
-    <polygon points="0,110 0,84 90,64 170,86 260,58 350,88 450,66 540,90 640,70 730,92 800,76 800,110" fill="#5F6E22"/>
-    <polygon points="0,110 0,98 120,88 240,100 380,90 520,102 660,92 800,100 800,110" fill="#0F2F3B"/>
-  </svg>
-</header>
+  <header class="banner">
+    <img src="banner.jpg" width="1400" height="787" alt="Vintage postcard reading Greetings from Galatia, with mountains inside the letters and ancient stone ruins in the foreground">
+    <h1>Night 1: Galatians in Context</h1>
+    <span class="badge">Badge earned: Visitor Center</span>
+  </header>
   <div class="intro">
     <div class="idea"><b>Big idea</b><p>Paul writes because the Galatians are trading the gospel of grace for a different “gospel” that adds the works of the law to Christ.</p></div>
     <nav class="jump" aria-label="Sections">

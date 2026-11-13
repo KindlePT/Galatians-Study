@@ -61,9 +61,12 @@ h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.3rem,4.6vw,1.75rem);l
 @media (max-width:620px){.postmark{width:104px;top:6px;right:4px}}
 .wrap-badge{margin-top:16px}
 
-.banner img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px var(--shadow)}
-.banner h1{margin:18px 0 8px}
-.banner .badge{display:inline-block}
+.banner>img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px var(--shadow)}
+.titlerow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
+.titlerow h1{margin:0;flex:1;min-width:0}
+.patch{width:92px;height:92px;flex:none;filter:drop-shadow(0 2px 4px var(--shadow));animation:stitch .9s cubic-bezier(.2,1.4,.4,1) .2s both}
+@keyframes stitch{0%{opacity:0;transform:scale(.4) rotate(-14deg)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.patch{animation:none}}
 /* Markers */
 .mk{background:var(--card);border:2px solid var(--edge);border-radius:10px;margin-top:12px;overflow:hidden;box-shadow:0 2px 6px var(--shadow)}
 .mk>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;cursor:pointer}
@@ -176,8 +179,10 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
 <main class="wrap">
   <header class="banner">
     <img src="banner.jpg" width="1400" height="787" alt="Vintage postcard reading Greetings from Galatia, with mountains inside the letters and ancient stone ruins in the foreground">
-    <h1>Night 1: Galatians in Context</h1>
-    <span class="badge">Badge earned: Visitor Center</span>
+    <div class="titlerow">
+      <h1>Night 1: Galatians in Context</h1>
+      <img class="patch" src="patch-1.webp" width="400" height="400" alt="Night 1 patch: Galatia Visitor Center" title="Patch 1: The Letter Arrives">
+    </div>
   </header>
   <div class="intro">
     <div class="idea"><b>Big idea</b><p>Paul writes because the Galatians are trading the gospel of grace for a different “gospel” that adds the works of the law to Christ.</p></div>

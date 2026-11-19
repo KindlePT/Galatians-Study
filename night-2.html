@@ -123,11 +123,11 @@ h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.3rem,4.6vw,1.75rem);l
 .box{flex:none;width:26px;height:26px;border:3px solid var(--teal);border-radius:6px;display:grid;place-items:center;font-size:1rem;line-height:1;color:transparent;margin-top:2px;transition:background .2s}
 .todo[aria-pressed="true"] .box{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
 .todo[aria-pressed="true"] span:last-child{text-decoration:line-through;opacity:.7}
-.pad{display:grid;gap:10px}
-.pad .ph{font:600 .9rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
-.pad label{display:block;font:600 .85rem var(--fl);letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:2px}
-.pad textarea{width:100%;min-height:64px;resize:vertical;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--edge);border-radius:8px;padding:8px 12px}
-.pad small{color:var(--muted);display:block}
+
+
+
+
+
 .next{margin-top:20px;border-top:3px dashed var(--edge);padding-top:16px;color:var(--muted)}
 .next b{color:var(--ink)}
 footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
@@ -183,15 +183,7 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
     <div class="sec-h"><h2>Take it home</h2></div>
     <div class="home">
       <button class="todo" type="button" aria-pressed="false" data-k="t1"><span class="box" aria-hidden="true">✓</span><span>No group on Nov 26 (Thanksgiving). Read Galatians 2 twice before Dec 3.</span></button>
-      <button class="todo" type="button" aria-pressed="false" data-k="t2"><span class="box" aria-hidden="true">✓</span><span>Write your story in three sentences, the way Paul does in 1:13-24. Be ready to share one sentence on Dec 3 if you are willing.</span></button>
       <button class="todo" type="button" aria-pressed="false" data-k="t3"><span class="box" aria-hidden="true">✓</span><span>Notice one approval you chase this week (1:10). Name it to God, and remind yourself that Christ already rescued you (1:4).</span></button>
-      <div class="pad">
-        <div class="ph">My story in three sentences</div>
-        <div><label for="s1">Before Christ</label><textarea id="s1" data-k="s1" placeholder="What was I trusting or chasing?"></textarea></div>
-        <div><label for="s2">How God called me</label><textarea id="s2" data-k="s2" placeholder="“But when he…” What did God do?"></textarea></div>
-        <div><label for="s3">What has changed</label><textarea id="s3" data-k="s3" placeholder="What would people say Christ has done in me (1:23-24)?"></textarea></div>
-        <small>Saved only on this device. Nobody else can see it.</small>
-      </div>
     </div>
     <div class="next"><b>Next up: Night 3, December 3.</b> Galatians 2: Paul's second Jerusalem visit, the clash with Peter at Antioch, and the heart of the letter in 2:15-21.</div>
   </section>
@@ -212,44 +204,32 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
   /* ---------- markers ---------- */
   var MK=[
    {n:"T",lab:"Trailhead",t:"Reading the whole chapter",bul:[
-     "Four readers took the chapter in four parts: 1:1-5, 1:6-10, 1:11-17 and 1:18-24.",
-     "<b>Repeated words.</b> “Man” or “men” comes up seven times in 1:1-12. Paul is pushing against any human source for his message. “Grace” comes up three times (1:3, 6, 15). That is where the gospel really comes from.",
-     "<b>The shape of the chapter:</b> a greeting (1:1-5), a rebuke (1:6-10), a thesis (1:11-12), and a story that proves the thesis (1:13-24)."],
+     "<b>The shape of the chapter:</b> a greeting (1:1-5), a rebuke (1:6-10), a thesis (1:11-12), and a story that proves the thesis (1:13-24).",
+     "<b>Repeated words.</b> “Man” comes up seven times in 1:1-12, so Paul is pushing against any human source for his message. “Grace” (1:3, 6, 15) is where the gospel really comes from."],
      think:"What does the repetition of “man” in 1:1-12 tell you Paul is pushing against?"},
    {n:1,t:"The greeting packs the gospel",ref:"1:1-5",bul:[
-     "<b>“Apostle”</b> means one sent with the sender's authority. Paul's commission is “not from men nor through man”: no human <b>source</b> and no human <b>channel</b>.",
-     "He was commissioned by the <b>risen</b> Christ (1 Corinthians 9:1; 15:8). The resurrection is also the sign that the new age has broken in.",
-     "<b>“Grace and peace.”</b> Paul reshapes the ordinary Greek greeting into <i>charis</i> (grace) and pairs it with the Hebrew blessing of <i>shalom</i>.",
-     "<b>“Who gave himself for our sins”</b> is the first statement of the cross in the letter. It returns in 2:20 and 3:13.",
-     "<b>“To deliver us”</b> is a rescue word, the one used for Israel brought out of Egypt. Salvation is a rescue, not an improvement.",
-     "<b>“The present evil age.”</b> Christ's death has already pulled believers out of the old age. Going back to the law's way of life would mean going back into the age Christ rescued us from (4:3, 9).",
-     "The rescue was <b>the Father's plan</b>, “according to the will of our God and Father.”"],
-     verse:{q:"“Grace to you and peace from God our Father and the Lord Jesus Christ, who gave himself for our sins to deliver us from the present evil age, according to the will of our God and Father, to whom be the glory forever and ever. Amen.”",r:"Galatians 1:3-5 (ESV)"},
-     think:"“The present evil age” still presses on us. Where do you feel its pull most this season, and how does knowing you have already been rescued change how you face it?",also:"Isaiah 53:4-12; Titus 2:14; Colossians 1:13-14"},
+     "Paul's apostleship is “not from men nor through man.” The <b>risen Christ</b> commissioned him.",
+     "Christ “gave himself for our sins to deliver us.” Salvation is a <b>rescue</b>, and it was the Father's plan.",
+     "Believers are already pulled out of “the present evil age,” so going back to the law means going back into what Christ rescued us from."],
+     verse:{q:"“…who gave himself for our sins to deliver us from the present evil age, according to the will of our God and Father…”",r:"Galatians 1:4 (ESV)"},
+     think:"Where do you feel the pull of “the present evil age” most this season, and how does knowing you have already been rescued change how you face it?",also:"Isaiah 53:4-12; Titus 2:14; Colossians 1:13-14"},
    {n:2,t:"Whose approval?",ref:"1:6-10",bul:[
-     "<b>Recap of 1:6-9:</b> “deserting” means changing sides, there is no second version of the gospel, and anyone who changes it is “accursed.”",
-     "<b>The Deuteronomy thread.</b> Deuteronomy 13:1-5 says not to follow even a prophet whose sign comes true if he leads Israel after other gods. Paul raises the bar: not even an apostle or an angel. Compare Deuteronomy 4:2, “You shall not add to the word that I command you, nor take from it.”",
-     "<b>Method versus message.</b> Paul tries to “please everyone” in how he reaches people (1 Corinthians 9:19-23; 10:33), but he will not change the gospel to win anyone's approval.",
-     "<b>“Servant of Christ”</b> means slave of Christ. A slave has one master (Matthew 6:24). Paul is free from human approval because he belongs wholly to Christ."],
-     verse:{q:"“For am I now seeking the approval of man, or of God? Or am I trying to please man? If I were still trying to please man, I would not be a servant of Christ.”",r:"Galatians 1:10 (ESV)"},
+     "Paul adapts his <b>method</b> to reach people, but he will not change the <b>message</b> to win anyone's approval.",
+     "Deuteronomy warned not to add to or take from God's word (4:2) and not to follow even a wonder-working prophet who leads away (13:1-5). Paul says the same of an apostle or an angel.",
+     "A “servant of Christ” has one master, which frees him from living for other people's approval."],
+     verse:{q:"“For am I now seeking the approval of man, or of God?”",r:"Galatians 1:10 (ESV)"},
      think:"Where do you feel the pull to seek someone's approval at church, at home or at work? What would it look like to answer to Christ first there?",also:"1 Thessalonians 2:3-6; John 12:42-43; Proverbs 29:25"},
    {n:3,t:"Received, not achieved",ref:"1:11-17",bul:[
-     "<b>The thesis (1:11-12).</b> “Receive” and “taught” are the normal words for passing a tradition from teacher to student. Paul denies both. He received the gospel through a <b>revelation</b> of Jesus Christ.",
-     "<b>Before Christ (1:13-14).</b> Paul “persecuted the church of God violently” and was a rising star, “extremely zealous” for the traditions of his fathers. His zeal earned him nothing with God.",
-     "<b>The call (1:15-16).</b> “But when he…” In 1:13-14 Paul is the subject of every verb. In 1:15-16 God is: he set Paul apart, called him by grace, was pleased to reveal his Son. See “Who is doing the acting?” below.",
-     "<b>A prophet's call.</b> “Before I was born” echoes Jeremiah 1:5 and Isaiah 49:1. Isaiah 49:6 goes on, “I will make you as a light for the nations,” the verse Paul and Barnabas quoted at Pisidian Antioch (Acts 13:47).",
-     "<b>The same grace.</b> God called Paul “by his grace” (1:15), the same way he called the Galatians (1:6). If grace found a violent persecutor, nobody needs to add works to stand with God.",
-     "<b>Afterward (1:16-17).</b> Paul did not consult “flesh and blood.” He went to Arabia and back to Damascus. His point is where he did not go: Jerusalem.",
-     "Religion says “I obey, therefore I am accepted.” The gospel says “I am accepted, therefore I obey.”"],
-     verse:{q:"“But when he who had set me apart before I was born, and who called me by his grace, was pleased to reveal his Son to me, in order that I might preach him among the Gentiles, I did not immediately consult with anyone.”",r:"Galatians 1:15-16 (ESV)"},
-     think:"Where do you feel the pull to seek approval, and what changes when you rest in a gospel you received instead of one you have to build?",also:"Acts 9:1-22; Philippians 3:4-11; 1 Timothy 1:12-16; 1 Corinthians 15:8-10"},
+     "Paul did not get the gospel from a teacher. He received it through a <b>revelation</b> of Jesus Christ.",
+     "In 1:13-14 Paul is the one acting: a zealous persecutor. In 1:15-16 <b>God</b> is: he set Paul apart, called him by grace, and revealed his Son.",
+     "God called Paul by the same grace he used to call the Galatians (1:6). If grace found a violent persecutor, nobody needs to add works to stand with God."],
+     verse:{q:"“But when he who had set me apart before I was born, and who called me by his grace, was pleased to reveal his Son to me…”",r:"Galatians 1:15-16 (ESV)"},
+     think:"What changes when you rest in a gospel you received instead of one you have to build?",also:"Acts 9:1-22; Philippians 3:4-11; 1 Corinthians 15:8-10"},
    {n:4,t:"After the call",ref:"1:18-24",bul:[
-     "Three years after his call, Paul spent <b>fifteen days</b> in Jerusalem, seeing only <b>Cephas</b> (Peter) and <b>James</b> the Lord's brother.",
-     "“To visit Cephas” uses a word that means to visit in order to get to know someone. Our word “history” comes from it. Paul likely heard Peter's eyewitness accounts of Jesus.",
-     "<b>“Before God, I do not lie!”</b> (1:20). Paul swears an oath because his independence from Jerusalem is exactly the point in dispute.",
-     "Then about a decade in <b>Syria and Cilicia</b>, including his hometown of Tarsus. These years were not silent: he was preaching the faith (1:23).",
-     "<b>The sting at the end.</b> The Jewish believers in Judea praised God for Paul's ministry. The troublers in Galatia claimed to speak for Jerusalem, yet they were attacking the very ministry Jerusalem's churches celebrated."],
-     verse:{q:"“They only were hearing it said, ‘He who used to persecute us is now preaching the faith he once tried to destroy.’ And they glorified God because of me.”",r:"Galatians 1:23-24 (ESV)"},
+     "Three years after his call, Paul spent <b>fifteen days</b> in Jerusalem and saw only Cephas (Peter) and James.",
+     "Then he spent years preaching in Syria and Cilicia, far from Jerusalem's oversight. “Before God, I do not lie!” (1:20) shows how much his independence matters.",
+     "The churches of Judea praised God for him, even though the troublers in Galatia claimed to speak for Jerusalem."],
+     verse:{q:"“…And they glorified God because of me.”",r:"Galatians 1:24 (ESV)"},
      think:"If someone summed up the change Christ has made in you in one sentence, what would you hope it would say?",also:"Acts 9:19-30; Acts 11:19-26; 1 Corinthians 15:5-11"}
   ];
   var list=$("mklist");
@@ -293,12 +273,12 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
 
   /* ---------- timeline ---------- */
   var TL=[
-   {t:"Persecutor",g:"Galatians 1:13-14",a:"Acts 8:1-3; 9:1-2; 22:3-5",d:"",x:"Paul tried to destroy the church of God and was advancing beyond his peers in zeal for the law.",pt:"His zeal was real, and it was violent."},
-   {t:"Called near Damascus",g:"Galatians 1:15-16",a:"Acts 9:3-19; 26:12-18",d:"about AD 33-34",x:"God revealed his Son to Paul, and the commission to preach among the Gentiles came with the call.",pt:"God acted, and the mission to the Gentiles was part of the call from the start."},
-   {t:"Arabia, then back to Damascus",g:"Galatians 1:17",a:"Acts 9:19-25; 2 Corinthians 11:32-33",d:"",x:"Arabia was the Nabataean kingdom south and east of Damascus. Paul may have preached there, reflected there, or both. He does not say.",pt:"He went away from Jerusalem, not to it."},
-   {t:"Jerusalem: fifteen days",g:"Galatians 1:18-20",a:"Acts 9:26-30",d:"three years after his call",x:"A short, private visit to get to know Cephas. The only other apostle he saw was James the Lord's brother.",pt:"The apostles did not hand him the gospel. He swears to it: “Before God, I do not lie!”"},
-   {t:"Syria and Cilicia",g:"Galatians 1:21-24",a:"Acts 9:30; 11:25-26",d:"about a decade",x:"Ministry around Tarsus, Paul's hometown, far from Jerusalem. The Judean churches only heard the report, and they glorified God.",pt:"He was preaching far from Jerusalem's oversight, and Jerusalem's churches rejoiced."},
-   {t:"What came next",g:"Galatians 2:1",a:"Acts 11:25-30; Acts 13-14",d:"11 to 14 years after his call",x:"Barnabas brings Paul to Antioch. Antioch sends them out on the first journey, which plants the churches of Galatia.",pt:"The Galatian churches came more than a decade after his call, and Antioch sent him, not Jerusalem. Night 3 picks up here."}
+   {t:"Persecutor",g:"Galatians 1:13-14",d:"",x:"Paul tried to destroy the church and was advancing in zeal for the law.",pt:"His zeal was real, and it was violent."},
+   {t:"Called near Damascus",g:"Galatians 1:15-16",d:"about AD 33-34",x:"God revealed his Son to Paul and sent him to the Gentiles.",pt:"God acted. The mission to the Gentiles came with the call."},
+   {t:"Arabia, then back to Damascus",g:"Galatians 1:17",d:"",x:"Paul went away to Arabia, not up to Jerusalem.",pt:"He went away from Jerusalem, not to it."},
+   {t:"Jerusalem: fifteen days",g:"Galatians 1:18-20",d:"three years after his call",x:"A short, private visit with Cephas. He also saw James, the Lord's brother.",pt:"The apostles did not hand him the gospel."},
+   {t:"Syria and Cilicia",g:"Galatians 1:21-24",d:"about a decade",x:"Years of preaching around his hometown of Tarsus. Judea's churches only heard the report, and they glorified God.",pt:"He preached far from Jerusalem, and Jerusalem's churches rejoiced."},
+   {t:"What came next",g:"Galatians 2:1",d:"11 to 14 years after his call",x:"Antioch sent Paul and Barnabas out, and that journey planted the churches of Galatia.",pt:"Night 3 picks up here."}
   ];
   var dots=$("dots"),ti=0;
   TL.forEach(function(s,i){var d=el("button","dot");d.type="button";d.setAttribute("aria-label","Stage "+(i+1)+": "+s.t);d.addEventListener("click",function(){step(i)});dots.appendChild(d)});
@@ -306,7 +286,7 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
     ti=i;var s=TL[i],p=$("tpanel");
     [].forEach.call(dots.children,function(d,j){d.classList.toggle("on",j<=i);d.setAttribute("aria-current",j===i?"step":"false")});
     replay(p);
-    p.innerHTML='<div class="q">'+s.t+'</div><div class="meta">'+s.g+(s.d?' · '+s.d:'')+'</div><p>'+s.x+'</p><div class="pt"><b>What Paul wants them to see</b>'+s.pt+'</div><p class="also"><b>Alongside:</b> '+s.a+'</p>';
+    p.innerHTML='<div class="q">'+s.t+'</div><div class="meta">'+s.g+(s.d?' · '+s.d:'')+'</div><p>'+s.x+'</p><div class="pt"><b>What Paul wants them to see</b>'+s.pt+'</div>';
     $("tcount").textContent="Stage "+(i+1)+" of "+TL.length;
     $("tprev").disabled=i===0;$("tnext").disabled=i===TL.length-1;
   }
@@ -333,10 +313,6 @@ footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
   [].forEach.call(document.querySelectorAll(".todo"),function(b){
     var k="todo-"+b.getAttribute("data-k");if(store(k)==="1")b.setAttribute("aria-pressed","true");
     b.addEventListener("click",function(){var on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on);store(k,on?"1":"0")});
-  });
-  [].forEach.call(document.querySelectorAll(".pad textarea"),function(t){
-    var k="story-"+t.getAttribute("data-k"),v=store(k);if(v)t.value=v;
-    t.addEventListener("input",function(){store(k,t.value)});
   });
 })();
 </script>

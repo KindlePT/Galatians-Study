@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Night 2 Recap</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Bowlby+One&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Yellowtail&display=swap">
+<style>
+/* Concept: same visitor-center brochure as Night 1. Night 2 adds a before/after verb switch and a stepper through Paul's movements. */
+:root{
+  --bg:#F3EAD2; --card:#FBF5E4; --ink:#1F1A14; --muted:#5C533F; --edge:#D8C79B; --soft:#F2DDBE;
+  --orange:#B2440D; --extrude:#E2551A; --teal:#1F6A8E; --teal-deep:#14475F; --olive:#5C6A1E; --on:#FFF6E2;
+  --good:#2F6B2F; --good-bg:#DDEBCB; --bad:#9A2A12; --bad-bg:#F6D8CC; --shadow:rgba(60,38,10,.22);
+  --fd:'Bowlby One',Impact,'Arial Black',sans-serif; --fs:'Yellowtail','Brush Script MT',cursive;
+  --fb:'Source Serif 4',Georgia,'Times New Roman',serif; --fl:'Barlow Condensed','Arial Narrow',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1A1F; --card:#17262D; --ink:#F1E6C6; --muted:#B4BDB3; --edge:#33474F; --soft:#2A3A38;
+    --orange:#E57A3A; --extrude:#7A2E0C; --teal:#5FB3D6; --teal-deep:#9ED4EA; --olive:#B7C46A; --on:#1A120A;
+    --good:#A9D98F; --good-bg:#223A22; --bad:#F2A58F; --bad-bg:#3E211A; --shadow:rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+a{color:var(--teal)}
+h1{font-family:var(--fd);font-weight:400;font-size:clamp(1.9rem,7vw,2.9rem);line-height:1.08;text-shadow:3px 3px 0 var(--extrude);text-wrap:balance;margin:4px 0 6px}
+.idea{margin-top:20px;background:var(--card);border-left:6px solid var(--orange);padding:14px 18px;border-radius:0 8px 8px 0;box-shadow:0 3px 8px var(--shadow)}
+.idea b{display:block;font:600 .9rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.idea p{font-size:1.15rem;margin-top:2px}
+nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+nav.jump a{font:600 .95rem var(--fl);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--teal-deep);border:2px solid var(--teal);border-radius:99px;padding:4px 14px}
+nav.jump a:hover{background:var(--soft)}
+section{margin-top:44px}
+.sec-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.3rem,4.6vw,1.75rem);line-height:1.15;text-wrap:balance}
+.tap{font-family:var(--fs);font-size:1.35rem;color:var(--orange)}
+.lead{color:var(--muted);margin-bottom:14px}
+
+.banner>img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px var(--shadow)}
+.titlerow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
+.titlerow h1{margin:0;flex:1;min-width:0}
+.patch{width:92px;height:92px;flex:none;filter:drop-shadow(0 2px 4px var(--shadow));animation:stitch .9s cubic-bezier(.2,1.4,.4,1) .2s both}
+@keyframes stitch{0%{opacity:0;transform:scale(.4) rotate(-14deg)}100%{opacity:1;transform:none}}
+
+/* Markers */
+.mk{background:var(--card);border:2px solid var(--edge);border-radius:10px;margin-top:12px;overflow:hidden;box-shadow:0 2px 6px var(--shadow)}
+.mk>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;cursor:pointer}
+.mk>button:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+.num{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:var(--on);font-family:var(--fd);font-size:1.25rem;border:3px double var(--on);box-shadow:0 0 0 2px var(--orange)}
+.num.th{background:var(--teal-deep);box-shadow:0 0 0 2px var(--teal-deep);font-size:1.1rem}
+.mk .t{flex:1;min-width:0}
+.mk .t small{display:block;font:600 .8rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.mk .t strong{display:block;font-family:var(--fd);font-weight:400;font-size:1.12rem;line-height:1.2}
+.mk .chev{flex:none;transition:transform .3s;font-size:1.3rem;color:var(--teal)}
+.mk.open .chev{transform:rotate(180deg)}
+.body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.mk.open .body{grid-template-rows:1fr}
+.body>div{overflow:hidden}
+.body .in{padding:0 18px 18px;display:grid;gap:12px}
+.body ul{padding-left:1.15rem;display:grid;gap:6px}
+.body li::marker{color:var(--orange)}
+.vs{font-style:italic;border-left:4px solid var(--teal);padding:2px 0 2px 14px}
+.vs cite{display:block;font:600 .85rem var(--fl);letter-spacing:.1em;text-transform:uppercase;font-style:normal;color:var(--muted);margin-top:2px}
+.think{background:var(--soft);border-radius:8px;padding:10px 14px}
+.think b{font:600 .85rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);display:block}
+.btn{display:inline-block;font:600 1rem var(--fl);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--on);background:var(--teal-deep);border:0;border-radius:4px;padding:8px 16px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{background:transparent;color:var(--teal-deep);border:2px solid var(--teal)}
+.also{font-size:.92rem;color:var(--muted)}
+
+/* Who is acting */
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.swb{flex:1 1 200px;font-family:var(--fd);font-size:1rem;border:2px solid var(--teal);background:var(--card);color:var(--teal-deep);border-radius:8px;padding:10px 8px;text-align:center;line-height:1.2}
+.swb small{display:block;font:600 .8rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.swb[aria-pressed="true"]{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
+.swb[aria-pressed="true"] small{color:inherit;opacity:.85}
+.actor{margin-top:12px;background:var(--card);border:2px dashed var(--edge);border-radius:10px;padding:14px 16px;min-height:9rem}
+.actor .who{font:600 .9rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.actor .subj{font-family:var(--fd);font-size:1.5rem;color:var(--orange);line-height:1.1;margin:2px 0 10px}
+.verbs{display:flex;flex-wrap:wrap;gap:8px}
+.verb{font:600 1rem var(--fl);letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:5px 14px;background:var(--soft);border:2px solid var(--edge);animation:rise .4s ease both}
+.verb.god{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
+.actor p{margin-top:12px}
+.seen{font:600 .9rem var(--fl);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Timeline stepper */
+.dots{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.dot{all:unset;box-sizing:border-box;height:14px;border-radius:99px;background:var(--edge);cursor:pointer;transition:background .3s}
+.dot.on{background:var(--orange)}
+.dot:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.panel{background:var(--card);border:2px solid var(--edge);border-radius:10px;padding:14px 16px;margin-top:12px;display:grid;gap:8px;animation:rise .4s ease both}
+.panel .q{font-family:var(--fd);font-size:1.15rem;line-height:1.25;color:var(--orange)}
+.panel .meta{font:600 .9rem var(--fl);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.panel .pt{background:var(--soft);border-radius:8px;padding:8px 12px}
+.panel .pt b{font:600 .85rem var(--fl);letter-spacing:.16em;text-transform:uppercase;color:var(--teal-deep);display:block}
+.stepnav{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:10px}
+.stepnav span{font:600 .9rem var(--fl);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Flip cards */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:6px}
+.flip{all:unset;box-sizing:border-box;display:block;perspective:900px;cursor:pointer;min-height:250px;border-radius:12px}
+.flip:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.fi{display:block;position:relative;width:100%;height:100%;min-height:250px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.2,.4,1)}
+.flip[aria-pressed="true"] .fi{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:16px;display:grid;align-content:center;justify-items:center;text-align:center;gap:6px;box-shadow:0 3px 8px var(--shadow)}
+.front{background:linear-gradient(150deg,var(--teal-deep),#0e3447);color:#FFF6E2;border:3px double #FFF6E2;outline:2px solid var(--teal-deep)}
+.front .gr{font-size:2rem;line-height:1.1;font-family:var(--fb);font-weight:600}
+.front .tr{font:600 .95rem var(--fl);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.front .hint{font-family:var(--fs);font-size:1.25rem;color:#F2C48D;margin-top:8px}
+.back{transform:rotateY(180deg);background:var(--card);border:2px solid var(--edge);text-align:left;justify-items:start;align-content:start;font-size:1rem}
+.back h3{font-family:var(--fd);font-weight:400;font-size:1rem;color:var(--orange)}
+.back .ref{font:600 .85rem var(--fl);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Take it home */
+.home{background:var(--card);border:2px solid var(--edge);border-radius:10px;padding:16px;display:grid;gap:12px;box-shadow:0 2px 6px var(--shadow)}
+.todo{display:flex;gap:12px;align-items:flex-start;text-align:left;border:0;background:none;padding:2px 0;width:100%}
+.box{flex:none;width:26px;height:26px;border:3px solid var(--teal);border-radius:6px;display:grid;place-items:center;font-size:1rem;line-height:1;color:transparent;margin-top:2px;transition:background .2s}
+.todo[aria-pressed="true"] .box{background:var(--teal-deep);color:var(--on);border-color:var(--teal-deep)}
+.todo[aria-pressed="true"] span:last-child{text-decoration:line-through;opacity:.7}
+.pad{display:grid;gap:10px}
+.pad .ph{font:600 .9rem var(--fl);letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.pad label{display:block;font:600 .85rem var(--fl);letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:2px}
+.pad textarea{width:100%;min-height:64px;resize:vertical;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--edge);border-radius:8px;padding:8px 12px}
+.pad small{color:var(--muted);display:block}
+.next{margin-top:20px;border-top:3px dashed var(--edge);padding-top:16px;color:var(--muted)}
+.next b{color:var(--ink)}
+footer{margin-top:40px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
+@media (prefers-reduced-motion:reduce){.patch{animation:none}.body,.fi,.chev,.dot{transition:none}.verb,.panel{animation:none}}
+</style>
+<style>html{color-scheme:light}img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+</head><body>
+
+<main class="wrap">
+  <header class="banner">
+    <img src="banner.jpg" width="1400" height="787" alt="Vintage postcard reading Greetings from Galatia, with mountains inside the letters and ancient stone ruins in the foreground">
+    <div class="titlerow">
+      <h1>Night 2: One Gospel, Received from Christ</h1>
+      <img class="patch" src="patch-2.webp" width="400" height="400" alt="Night 2 patch: Trailhead" title="Patch 2: No Other Gospel">
+    </div>
+  </header>
+  <div class="intro">
+    <div class="idea"><b>Big idea</b><p>There is only one gospel, and Paul received it by revelation from Jesus Christ, not from any human authority. It is received, not achieved.</p></div>
+    <nav class="jump" aria-label="Sections">
+      <a href="#markers">Markers</a><a href="#acting">Who is acting?</a><a href="#timeline">Paul's movements</a><a href="#words">Key words</a><a href="#home">Take it home</a>
+    </nav>
+  </div>
+
+  <section id="markers">
+    <div class="sec-h"><h2>Galatians 1, marker by marker</h2><span class="tap">tap to open</span></div>
+    <p class="lead">We read the whole chapter together, then slowed down at four places. Open the ones you want to revisit.</p>
+    <div id="mklist"></div>
+  </section>
+
+  <section id="acting">
+    <div class="sec-h"><h2>Who is doing the acting?</h2><span class="tap">tap both sides</span></div>
+    <p class="lead">The word “but” in 1:15 is the hinge of the chapter. Compare the verbs on each side of it.</p>
+    <div class="sw" id="sw"></div>
+    <div class="actor" id="actor"><p style="color:var(--muted);margin:0">Choose a side to see who is the subject of every verb.</p></div>
+    <div class="seen" id="aseen"></div>
+  </section>
+
+  <section id="timeline">
+    <div class="sec-h"><h2>Where Paul went, and where he didn't</h2><span class="tap">step through</span></div>
+    <p class="lead">Paul retells his movements (1:13-2:1) to prove one point: his gospel did not come from Jerusalem. Dates are approximate.</p>
+    <div class="dots" id="dots"></div>
+    <div class="panel" id="tpanel" aria-live="polite"></div>
+    <div class="stepnav"><button class="btn ghost" id="tprev" type="button">← Back</button><span id="tcount"></span><button class="btn" id="tnext" type="button">Next →</button></div>
+  </section>
+
+  <section id="words">
+    <div class="sec-h"><h2>Four words that matter</h2><span class="tap">tap to flip</span></div>
+    <p class="lead">Words from the original Greek of Galatians 1 that carry a lot of weight.</p>
+    <div class="flips" id="flips"></div>
+  </section>
+
+  <section id="home">
+    <div class="sec-h"><h2>Take it home</h2></div>
+    <div class="home">
+      <button class="todo" type="button" aria-pressed="false" data-k="t1"><span class="box" aria-hidden="true">✓</span><span>No group on Nov 26 (Thanksgiving). Read Galatians 2 twice before Dec 3.</span></button>
+      <button class="todo" type="button" aria-pressed="false" data-k="t2"><span class="box" aria-hidden="true">✓</span><span>Write your story in three sentences, the way Paul does in 1:13-24. Be ready to share one sentence on Dec 3 if you are willing.</span></button>
+      <button class="todo" type="button" aria-pressed="false" data-k="t3"><span class="box" aria-hidden="true">✓</span><span>Notice one approval you chase this week (1:10). Name it to God, and remind yourself that Christ already rescued you (1:4).</span></button>
+      <div class="pad">
+        <div class="ph">My story in three sentences</div>
+        <div><label for="s1">Before Christ</label><textarea id="s1" data-k="s1" placeholder="What was I trusting or chasing?"></textarea></div>
+        <div><label for="s2">How God called me</label><textarea id="s2" data-k="s2" placeholder="“But when he…” What did God do?"></textarea></div>
+        <div><label for="s3">What has changed</label><textarea id="s3" data-k="s3" placeholder="What would people say Christ has done in me (1:23-24)?"></textarea></div>
+        <small>Saved only on this device. Nobody else can see it.</small>
+      </div>
+    </div>
+    <div class="next"><b>Next up: Night 3, December 3.</b> Galatians 2: Paul's second Jerusalem visit, the clash with Peter at Antioch, and the heart of the letter in 2:15-21.</div>
+  </section>
+
+  <footer>
+    <div><a href="index.html">← Back to the Study Companion</a> · <a href="night-1.html">Night 1 recap</a> · <a href="paul-journey.html">Paul's First Journey map</a></div>
+    <div>Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.</div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  function store(k,v){try{if(v===undefined)return localStorage.getItem("gal2-"+k);localStorage.setItem("gal2-"+k,v)}catch(e){return null}}
+  function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e}
+  function replay(e){e.style.animation="none";void e.offsetWidth;e.style.animation=""}
+
+  /* ---------- markers ---------- */
+  var MK=[
+   {n:"T",lab:"Trailhead",t:"Reading the whole chapter",bul:[
+     "Four readers took the chapter in four parts: 1:1-5, 1:6-10, 1:11-17 and 1:18-24.",
+     "<b>Repeated words.</b> “Man” or “men” comes up seven times in 1:1-12. Paul is pushing against any human source for his message. “Grace” comes up three times (1:3, 6, 15). That is where the gospel really comes from.",
+     "<b>The shape of the chapter:</b> a greeting (1:1-5), a rebuke (1:6-10), a thesis (1:11-12), and a story that proves the thesis (1:13-24)."],
+     think:"What does the repetition of “man” in 1:1-12 tell you Paul is pushing against?"},
+   {n:1,t:"The greeting packs the gospel",ref:"1:1-5",bul:[
+     "<b>“Apostle”</b> means one sent with the sender's authority. Paul's commission is “not from men nor through man”: no human <b>source</b> and no human <b>channel</b>.",
+     "He was commissioned by the <b>risen</b> Christ (1 Corinthians 9:1; 15:8). The resurrection is also the sign that the new age has broken in.",
+     "<b>“Grace and peace.”</b> Paul reshapes the ordinary Greek greeting into <i>charis</i> (grace) and pairs it with the Hebrew blessing of <i>shalom</i>.",
+     "<b>“Who gave himself for our sins”</b> is the first statement of the cross in the letter. It returns in 2:20 and 3:13.",
+     "<b>“To deliver us”</b> is a rescue word, the one used for Israel brought out of Egypt. Salvation is a rescue, not an improvement.",
+     "<b>“The present evil age.”</b> Christ's death has already pulled believers out of the old age. Going back to the law's way of life would mean going back into the age Christ rescued us from (4:3, 9).",
+     "The rescue was <b>the Father's plan</b>, “according to the will of our God and Father.”"],
+     verse:{q:"“Grace to you and peace from God our Father and the Lord Jesus Christ, who gave himself for our sins to deliver us from the present evil age, according to the will of our God and Father, to whom be the glory forever and ever. Amen.”",r:"Galatians 1:3-5 (ESV)"},
+     think:"“The present evil age” still presses on us. Where do you feel its pull most this season, and how does knowing you have already been rescued change how you face it?",also:"Isaiah 53:4-12; Titus 2:14; Colossians 1:13-14"},
+   {n:2,t:"Whose approval?",ref:"1:6-10",bul:[
+     "<b>Recap of 1:6-9:</b> “deserting” means changing sides, there is no second version of the gospel, and anyone who changes it is “accursed.”",
+     "<b>The Deuteronomy thread.</b> Deuteronomy 13:1-5 says not to follow even a prophet whose sign comes true if he leads Israel after other gods. Paul raises the bar: not even an apostle or an angel. Compare Deuteronomy 4:2, “You shall not add to the word that I command you, nor take from it.”",
+     "<b>Method versus message.</b> Paul tries to “please everyone” in how he reaches people (1 Corinthians 9:19-23; 10:33), but he will not change the gospel to win anyone's approval.",
+     "<b>“Servant of Christ”</b> means slave of Christ. A slave has one master (Matthew 6:24). Paul is free from human approval because he belongs wholly to Christ."],
+     verse:{q:"“For am I now seeking the approval of man, or of God? Or am I trying to please man? If I were still trying to please man, I would not be a servant of Christ.”",r:"Galatians 1:10 (ESV)"},
+     think:"Where do you feel the pull to seek someone's approval at church, at home or at work? What would it look like to answer to Christ first there?",also:"1 Thessalonians 2:3-6; John 12:42-43; Proverbs 29:25"},
+   {n:3,t:"Received, not achieved",ref:"1:11-17",bul:[
+     "<b>The thesis (1:11-12).</b> “Receive” and “taught” are the normal words for passing a tradition from teacher to student. Paul denies both. He received the gospel through a <b>revelation</b> of Jesus Christ.",
+     "<b>Before Christ (1:13-14).</b> Paul “persecuted the church of God violently” and was a rising star, “extremely zealous” for the traditions of his fathers. His zeal earned him nothing with God.",
+     "<b>The call (1:15-16).</b> “But when he…” In 1:13-14 Paul is the subject of every verb. In 1:15-16 God is: he set Paul apart, called him by grace, was pleased to reveal his Son. See “Who is doing the acting?” below.",
+     "<b>A prophet's call.</b> “Before I was born” echoes Jeremiah 1:5 and Isaiah 49:1. Isaiah 49:6 goes on, “I will make you as a light for the nations,” the verse Paul and Barnabas quoted at Pisidian Antioch (Acts 13:47).",
+     "<b>The same grace.</b> God called Paul “by his grace” (1:15), the same way he called the Galatians (1:6). If grace found a violent persecutor, nobody needs to add works to stand with God.",
+     "<b>Afterward (1:16-17).</b> Paul did not consult “flesh and blood.” He went to Arabia and back to Damascus. His point is where he did not go: Jerusalem.",
+     "Religion says “I obey, therefore I am accepted.” The gospel says “I am accepted, therefore I obey.”"],
+     verse:{q:"“But when he who had set me apart before I was born, and who called me by his grace, was pleased to reveal his Son to me, in order that I might preach him among the Gentiles, I did not immediately consult with anyone.”",r:"Galatians 1:15-16 (ESV)"},
+     think:"Where do you feel the pull to seek approval, and what changes when you rest in a gospel you received instead of one you have to build?",also:"Acts 9:1-22; Philippians 3:4-11; 1 Timothy 1:12-16; 1 Corinthians 15:8-10"},
+   {n:4,t:"After the call",ref:"1:18-24",bul:[
+     "Three years after his call, Paul spent <b>fifteen days</b> in Jerusalem, seeing only <b>Cephas</b> (Peter) and <b>James</b> the Lord's brother.",
+     "“To visit Cephas” uses a word that means to visit in order to get to know someone. Our word “history” comes from it. Paul likely heard Peter's eyewitness accounts of Jesus.",
+     "<b>“Before God, I do not lie!”</b> (1:20). Paul swears an oath because his independence from Jerusalem is exactly the point in dispute.",
+     "Then about a decade in <b>Syria and Cilicia</b>, including his hometown of Tarsus. These years were not silent: he was preaching the faith (1:23).",
+     "<b>The sting at the end.</b> The Jewish believers in Judea praised God for Paul's ministry. The troublers in Galatia claimed to speak for Jerusalem, yet they were attacking the very ministry Jerusalem's churches celebrated."],
+     verse:{q:"“They only were hearing it said, ‘He who used to persecute us is now preaching the faith he once tried to destroy.’ And they glorified God because of me.”",r:"Galatians 1:23-24 (ESV)"},
+     think:"If someone summed up the change Christ has made in you in one sentence, what would you hope it would say?",also:"Acts 9:19-30; Acts 11:19-26; 1 Corinthians 15:5-11"}
+  ];
+  var list=$("mklist");
+  MK.forEach(function(m){
+    var card=el("div","mk"),id="mk"+m.n;
+    var lab=m.lab||("Marker "+m.n+(m.ref?" · "+m.ref:""));
+    var b=el("button",null,'<span class="num'+(m.lab?' th':'')+'" aria-hidden="true">'+m.n+'</span><span class="t"><small>'+lab+'</small><strong>'+m.t+'</strong></span><span class="chev" aria-hidden="true">⌄</span>');
+    b.type="button";b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls",id);
+    var body=el("div","body");body.id=id;body.setAttribute("role","region");
+    var inn=el("div","in");
+    inn.appendChild(el("ul",null,m.bul.map(function(x){return "<li>"+x+"</li>"}).join("")));
+    if(m.verse)inn.appendChild(el("blockquote","vs",m.verse.q+"<cite>"+m.verse.r+"</cite>"));
+    inn.appendChild(el("div","think","<b>Think about it</b>"+m.think));
+    if(m.also)inn.appendChild(el("p","also","<b>Also read:</b> "+m.also));
+    var wrap=el("div");wrap.appendChild(inn);body.appendChild(wrap);
+    b.addEventListener("click",function(){var o=card.classList.toggle("open");b.setAttribute("aria-expanded",o)});
+    card.appendChild(b);card.appendChild(body);list.appendChild(card);
+  });
+
+  /* ---------- who is acting ---------- */
+  var AC=[
+   {k:"Before",c:"Galatians 1:13-14",who:"The subject of every verb",subj:"Paul",god:false,
+    v:["persecuted","tried to destroy","was advancing","was zealous"],
+    p:"A rising star, sincere and violent. All of that effort pointed him away from Christ and against his church."},
+   {k:"“But when he…”",c:"Galatians 1:15-16",who:"The subject of every verb",subj:"God",god:true,
+    v:["set me apart","called me by his grace","was pleased","to reveal his Son to me"],
+    p:"Paul contributes nothing to his own call. God acted first, before Paul was born, and grace found him in the middle of his zeal."}
+  ];
+  var sw=$("sw"),aseen={};
+  AC.forEach(function(a,i){
+    var b=el("button","swb",a.k+"<small>"+a.c+"</small>");b.type="button";b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){
+      [].forEach.call(sw.children,function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");
+      $("actor").innerHTML='<div class="who">'+a.who+'</div><div class="subj">'+a.subj+'</div><div class="verbs">'+
+        a.v.map(function(x,j){return '<span class="verb'+(a.god?' god':'')+'" style="animation-delay:'+(j*.09)+'s">'+x+'</span>'}).join("")+'</div><p>'+a.p+'</p>';
+      aseen[i]=1;
+      $("aseen").textContent=Object.keys(aseen).length===2?"The turn is complete: the gospel is received, not achieved.":"Now tap the other side.";
+    });
+    sw.appendChild(b);
+  });
+
+  /* ---------- timeline ---------- */
+  var TL=[
+   {t:"Persecutor",g:"Galatians 1:13-14",a:"Acts 8:1-3; 9:1-2; 22:3-5",d:"",x:"Paul tried to destroy the church of God and was advancing beyond his peers in zeal for the law.",pt:"His zeal was real, and it was violent."},
+   {t:"Called near Damascus",g:"Galatians 1:15-16",a:"Acts 9:3-19; 26:12-18",d:"about AD 33-34",x:"God revealed his Son to Paul, and the commission to preach among the Gentiles came with the call.",pt:"God acted, and the mission to the Gentiles was part of the call from the start."},
+   {t:"Arabia, then back to Damascus",g:"Galatians 1:17",a:"Acts 9:19-25; 2 Corinthians 11:32-33",d:"",x:"Arabia was the Nabataean kingdom south and east of Damascus. Paul may have preached there, reflected there, or both. He does not say.",pt:"He went away from Jerusalem, not to it."},
+   {t:"Jerusalem: fifteen days",g:"Galatians 1:18-20",a:"Acts 9:26-30",d:"three years after his call",x:"A short, private visit to get to know Cephas. The only other apostle he saw was James the Lord's brother.",pt:"The apostles did not hand him the gospel. He swears to it: “Before God, I do not lie!”"},
+   {t:"Syria and Cilicia",g:"Galatians 1:21-24",a:"Acts 9:30; 11:25-26",d:"about a decade",x:"Ministry around Tarsus, Paul's hometown, far from Jerusalem. The Judean churches only heard the report, and they glorified God.",pt:"He was preaching far from Jerusalem's oversight, and Jerusalem's churches rejoiced."},
+   {t:"What came next",g:"Galatians 2:1",a:"Acts 11:25-30; Acts 13-14",d:"11 to 14 years after his call",x:"Barnabas brings Paul to Antioch. Antioch sends them out on the first journey, which plants the churches of Galatia.",pt:"The Galatian churches came more than a decade after his call, and Antioch sent him, not Jerusalem. Night 3 picks up here."}
+  ];
+  var dots=$("dots"),ti=0;
+  TL.forEach(function(s,i){var d=el("button","dot");d.type="button";d.setAttribute("aria-label","Stage "+(i+1)+": "+s.t);d.addEventListener("click",function(){step(i)});dots.appendChild(d)});
+  function step(i){
+    ti=i;var s=TL[i],p=$("tpanel");
+    [].forEach.call(dots.children,function(d,j){d.classList.toggle("on",j<=i);d.setAttribute("aria-current",j===i?"step":"false")});
+    replay(p);
+    p.innerHTML='<div class="q">'+s.t+'</div><div class="meta">'+s.g+(s.d?' · '+s.d:'')+'</div><p>'+s.x+'</p><div class="pt"><b>What Paul wants them to see</b>'+s.pt+'</div><p class="also"><b>Alongside:</b> '+s.a+'</p>';
+    $("tcount").textContent="Stage "+(i+1)+" of "+TL.length;
+    $("tprev").disabled=i===0;$("tnext").disabled=i===TL.length-1;
+  }
+  $("tprev").addEventListener("click",function(){if(ti>0)step(ti-1)});
+  $("tnext").addEventListener("click",function(){if(ti<TL.length-1)step(ti+1)});
+  step(0);
+
+  /* ---------- flip cards ---------- */
+  var WD=[
+   {gr:"ἐξαιρέω",tr:"exaireō",en:"“to deliver”",ref:"Galatians 1:4",h:"To rescue from danger",b:"Used of Israel rescued from Egypt (Acts 7:34) and Peter rescued from prison (Acts 12:11). It is an exodus word: God brings us out, we do not climb out."},
+   {gr:"ἀρέσκω",tr:"areskō",en:"“to please”",ref:"Galatians 1:10",h:"To gratify, win favor",b:"Paul adapts his manner to reach people, but he will not reshape the message to win their approval. A servant of Christ answers to one master."},
+   {gr:"ἀποκάλυψις",tr:"apokalypsis",en:"“revelation”",ref:"Galatians 1:12, 16",h:"An unveiling",b:"Something hidden is uncovered. Paul did not work the gospel out or learn it from a teacher. God revealed his Son, and Christ himself is the content of the revelation."},
+   {gr:"ἱστορέω",tr:"historeō",en:"“to visit”",ref:"Galatians 1:18",h:"To get to know, to inquire",b:"Used only here in the New Testament. Our word “history” comes from it. Paul spent fifteen days getting to know Cephas, likely hearing his eyewitness accounts of Jesus."}
+  ];
+  var fl=$("flips");
+  WD.forEach(function(w){
+    var b=el("button","flip");b.type="button";b.setAttribute("aria-pressed","false");b.setAttribute("aria-label",w.tr+", "+w.en+". Flip for the meaning.");
+    b.innerHTML='<span class="fi"><span class="face front"><span class="gr" lang="grc">'+w.gr+'</span><span class="tr">'+w.tr+'</span><span class="tr">'+w.en+'</span><span class="hint">tap to flip</span></span><span class="face back"><span class="ref">'+w.ref+'</span><h3>'+w.h+'</h3><span>'+w.b+'</span></span></span>';
+    b.addEventListener("click",function(){b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true")});
+    fl.appendChild(b);
+  });
+
+  /* ---------- take it home ---------- */
+  [].forEach.call(document.querySelectorAll(".todo"),function(b){
+    var k="todo-"+b.getAttribute("data-k");if(store(k)==="1")b.setAttribute("aria-pressed","true");
+    b.addEventListener("click",function(){var on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on);store(k,on?"1":"0")});
+  });
+  [].forEach.call(document.querySelectorAll(".pad textarea"),function(t){
+    var k="story-"+t.getAttribute("data-k"),v=store(k);if(v)t.value=v;
+    t.addEventListener("input",function(){store(k,t.value)});
+  });
+})();
+</script>
+</body></html>
